@@ -1,0 +1,30 @@
+{
+  "short_name": "Covid-19",
+  "name": "Info Covid-19 NTT",
+  "icons": [{
+      "src": "covid.svg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "svg"
+    },
+    {
+      "src": "covid.svg",
+      "type": "svg",
+      "sizes": "192x192"
+    },
+    {
+      "src": "covid.svg",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "standalone",
+  "theme_color": "#a7ed97",
+  "background_color": "#a7ed97",
+  "scope": "/",
+  "prefer_related_applications": "true",
+  "related_applications": [{
+    "platform": "play",
+    "id": "com.example.app"
+  }]
+}

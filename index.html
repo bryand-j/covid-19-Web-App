@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Covid-19 NTT</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<!-- Add to home screen for Windows-->
+	<meta name="msapplication-TileImage" content="covid.svg" />
+	<meta name="msapplication-TileColor" content="#a7ed97" />
+	<meta name="theme-color" content="#a7ed97">
+	<link rel="icon" href="covid.svg" type="svg" />
+	<link rel="manifest" href="manifest.json" />
+	<meta name="description" content="Web site Info Covid-19 NTT" />
+	<link rel="apple-touch-icon" href="covid.svg" />
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+	<style type="text/css">
+		.count-to {
+			font-family: Montserrat;
+			font-size: 30px;
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 50%;
+			width: 90px;
+			height: 90px;
+
+
+		}
+	</style>
+
+
+	<!-- CSS Files -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/atlantis.min.css">
+
+</head>
+
+<body>
+	<div class="">
+		<div class="content">
+			<div class="panel-header" style="position: relative; background-color: rgb(167, 237, 151);">
+				<img src="assets/img/covid.png" style="position: absolute; right: 0; bottom: 0;" width="230px"
+					class="img-fluid">
+				<div class="page-inner py-5" style="position: relative;">
+					<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+						<div style="z-index :10000000; font-family: Montserrat !important; ">
+							<div class="text-black pb-2" style=" font-size: 30px; font-weight:bolder; ">NTT Lawan Covid-19</div>
+							<div class="text-black mb-2" style=" font-size: 18px; ">Info Kasus Covid-19 NTT</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page-inner mt--5">
+				<div class="row mt--2">
+					<div class="col-md-12">
+						<div class="card full-height">
+							<div class="card-body">
+								<div class="card-title">Update Kasus</div>
+								<div class="card-category">Diupdate 19 Mei 2020</div>
+								<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
+									<div class=" pb-2 pb-md-0 text-center">
+										<div class="text-warning number count-to" style="background-color:  rgba(255, 173, 70,0.2);"
+											data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
+										<h6 class="fw-bold mt-3 mb-0">Positif</h6>
+									</div>
+									<div class="pb-2 pb-md-0 text-center">
+										<div class="text-success number count-to" style="background-color:  rgba(49, 206, 54,0.2);"
+											data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
+										<h6 class="fw-bold mt-3 mb-0">Sembuh</h6>
+									</div>
+									<div class=" pb-2 pb-md-0 text-center">
+										<div class="text-danger number count-to" style="background-color:  rgba(242, 89, 97,0.2); "
+											data-from="0" data-to="125" data-speed="1000" data-fresh-interval="20"></div>
+										<h6 class="fw-bold mt-3 mb-0">Meninggal</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card">
+							<div class="card-header">
+								<div class="card-head-row">
+									<div class="card-title">Statistik Kasus</div>
+
+								</div>
+							</div>
+							<div class="card-body">
+								<div class="chart-container d-flex align-items-center justify-content-center" style="min-height: 375px">
+									<!-- <canvas id="statisticsChart"></canvas> -->
+									<h2>coming soon!</h2>
+								</div>
+								<!-- <div id="myChartLegend"></div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		<footer class="footer ">
+			<div class=" container">
+				<div class="copyright m-auto ">
+					2020, made with <i class="fa fa-heart heart text-danger"></i> by <a href="https://bryand-j.github.io/">Bryand
+						J</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+
+	<!--   Core JS Files   -->
+	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="assets/js/core/popper.min.js"></script>
+	<script src="assets/js/core/bootstrap.min.js"></script>
+
+	<!-- Jquery CountTo Plugin Js -->
+	<script src="assets/js/plugin/jquery-countto/jquery.countTo.js"></script>
+
+
+
+	<script src="assets/js/plugin/jqvmap/maps/jquery.vmap.world.js"></script>
+
+
+	<!-- Atlantis JS -->
+	<script src="assets/js/atlantis.min.js"></script>
+
+
+	<script>
+		//Widgets count
+		$('.count-to').countTo();
+	</script>
+	<script>
+		if ('serviceWorker' in navigator) {
+			window.addEventListener('load', () => {
+				navigator.serviceWorker.register('/sw.js');
+			});
+		}
+		window.addEventListener('beforeinstallprompt', function (event) {
+			console.log('before add to home screen');
+			event.preventDefault();
+			promptInstall = event;
+			return false;
+		});
+		if (promptInstall) {
+			promptInstall.prompt()
+			promptInstall.userChoice.then(function (choiceResult) {
+				console.log(choiceResult.outcome);
+				if (choiceResult.outcome === 'dismissed') {
+					console.log('user cancelled installation');
+				} else {
+					console.log('user add to home screen');
+				}
+			});
+			promptInstall = null;
+		}
+	</script>
+</body>
+
+</html>

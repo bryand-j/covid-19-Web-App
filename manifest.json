@@ -22,9 +22,5 @@
   "theme_color": "#a7ed97",
   "background_color": "#a7ed97",
   "scope": "/",
-  "prefer_related_applications": "true",
-  "related_applications": [{
-    "platform": "play",
-    "id": "com.example.app"
-  }]
+  
 }

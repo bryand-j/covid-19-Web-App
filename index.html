@@ -142,6 +142,15 @@
 				navigator.serviceWorker.register('/sw.js');
 			});
 		}
+window.addEventListener('beforeinstallprompt', (event) => {
+  event.preventDefault();
+
+  // if no localStorage is set, first time visitor
+  if (!getVisited()) {
+    
+    installEvent = event;
+  }
+});
 	
 	</script>
 </body>
